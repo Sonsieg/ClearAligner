@@ -11,7 +11,7 @@ export default class TabTwo extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top title="Add a new enquiry" />
+        <Top title="Add a new enquiry" onPress={()=>this.props.navigation.goBack()}/>
         <View
           style={{
             marginHorizontal: scale(20),
@@ -46,7 +46,7 @@ export default class TabTwo extends Component {
               </Text>
             </View>
           </TouchableOpacity>
-          <ButtonTab title="Next" />
+          <ButtonTab title="Next" onPress={() => this.props.navigation.navigate('TabThree')} />
         </View>
       </ImageBackground>
     );

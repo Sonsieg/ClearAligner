@@ -1,18 +1,22 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import asset from '../../asset';
 import {scale} from '../ScaleSheet';
 
 export default class Top extends Component {
+  
   render() {
+    const {onPress}= this.props;
     return (
       <View style={styles.view}>
         <View style={{justifyContent:"center"}}>
+          <TouchableOpacity onPress={onPress}>
           <Image
             resizeMode="center"
             style={{width: scale(55), height: scale(55), alignItems:"center"}}
             source={asset.icongoBack}
           />
+          </TouchableOpacity>
         </View>
         <View style={{justifyContent: 'center'}}>
           <Text style={styles.logo}>ClearAligner</Text>

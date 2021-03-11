@@ -11,7 +11,10 @@ export default class TabFive extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top title="Add a new enquiry" />
+        <Top
+          title="Add a new enquiry"
+          onPress={() => this.props.navigation.goBack()}
+        />
         <View
           style={{
             marginHorizontal: scale(20),
@@ -19,9 +22,7 @@ export default class TabFive extends Component {
             marginVertical: scale(20),
             height: '80%',
           }}>
-          <Text style={{fontSize: scale(20)}}>
-            Intra - Oral Views 1:2
-          </Text>
+          <Text style={{fontSize: scale(20)}}>Intra - Oral Views 1:2</Text>
           <View
             style={{
               width: '100%',
@@ -46,7 +47,10 @@ export default class TabFive extends Component {
               </Text>
             </View>
           </TouchableOpacity>
-          <ButtonTab title="Next" />
+          <ButtonTab
+            title="Next"
+            onPress={() => this.props.navigation.navigate('TabSix')}
+          />
         </View>
       </ImageBackground>
     );

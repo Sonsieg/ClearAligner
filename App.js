@@ -11,20 +11,14 @@ import {View, Text} from 'react-native';
 import Top from './src/components/Top';
 import Intro from './src/containers/Intro';
 import TabOne from './src/containers/NextTab/TabOne';
+import {NavigationContainer} from '@react-navigation/native';
+import Router from './src/Router';
+import MyStack from './src/Router';
 export default function App() {
   return (
-    // <Provider store={store}>
-    //   {/* <PersistGate persistor={persistor}> */}
-    //   <NavigationContainer>
-    //     <MyStack />
-    //     {/* <Playmusic/> */}
-    //   </NavigationContainer>
-    //   {/* </PersistGate> */}
-    // </Provider>
-    <View>
-      {/* <Intro /> */}
-      {/* <Top/> */}
-      <TabOne/>
-    </View>
+    <NavigationContainer>
+      <MyStack />
+      {/* <Playmusic/> */}
+    </NavigationContainer>
   );
 }
