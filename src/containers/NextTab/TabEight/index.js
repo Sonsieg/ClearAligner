@@ -49,7 +49,7 @@ export default class TabEight extends Component {
           </TouchableOpacity>
           <ButtonTab
             title="Next"
-            onPress={() => this.props.navigation.navigate('A')}
+            onPress={() => this.props.navigation.navigate('TabAll')}
           />
         </View>
       </ImageBackground>
