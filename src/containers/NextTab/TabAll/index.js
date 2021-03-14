@@ -37,7 +37,7 @@ class TabAll extends Component {
           <ImageShow 
           onPress1={() => this.props.navigation.navigate('TabSeven')}
           onPress2={() => this.props.navigation.navigate('TabEight')}/>
-          <ButtonTab title="Next" />
+          <ButtonTab title="Next" onPress={()=>this.props.navigation.navigate('Info')}/>
         </View>
       </ImageBackground>
     );

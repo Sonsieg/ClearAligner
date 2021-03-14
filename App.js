@@ -16,10 +16,15 @@ import Router from './src/Router';
 import MyStack from './src/Router';
 import TabAll from './src/containers/NextTab/TabAll';
 import ImageShow from './src/components/ImageShow';
+import Info from './src/containers/Info/Index';
+import InfoTwo from './src/containers/Info/InfoTwo';
+import Send from './src/containers/Send';
 export default function App() {
   return (
     <NavigationContainer>
+      {/* <InfoTwo/> */}
       <MyStack />
+      {/* <Send/> */}
       {/* <Playmusic/> */}
       {/* <ImageShow/> */}
       {/* <TabAll/> */}

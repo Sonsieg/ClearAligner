@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
 import asset from '../../asset';
 import ButtonTab from '../../components/ButtonTab';
 import {scale} from '../../components/ScaleSheet';
@@ -15,7 +15,11 @@ export default class Intro extends Component {
             flex: 1,
           }}>
           <View style={styles.viewTab}>
-            <Text style={styles.logo}>Clear Aligner</Text>
+            <Image
+              style={{width: scale(250), height: scale(250)}}
+              resizeMode="contain"
+              source={asset.logo}
+            />
           </View>
           <View style={styles.viewBottom}>
             <View
@@ -23,7 +27,7 @@ export default class Intro extends Component {
                 marginHorizontal: scale(20),
                 justifyContent: 'space-around',
                 height: '85%',
-                marginVertical: scale(20),
+                marginTop:scale(30)
               }}>
               <Text
                 style={{
@@ -43,7 +47,10 @@ export default class Intro extends Component {
                 assessment to check if it is possible to align your teeth and
                 select the best aligner treatment for you.
               </Text>
-              <ButtonTab title="Create your first enquiry" onPress={() => this.props.navigation.navigate('TabOne')}/>
+              <ButtonTab
+                title="Create your first enquiry"
+                onPress={() => this.props.navigation.navigate('TabOne')}
+              />
             </View>
           </View>
         </View>
@@ -63,6 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#C5E6EF',
     marginBottom: 0,
     justifyContent: 'center',
+    alignItems:"center"
     // marginHorizontal: scale(20),
   },
   viewBottom: {

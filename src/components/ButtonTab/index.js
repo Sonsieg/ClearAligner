@@ -17,6 +17,7 @@ export class ButtonTab extends Component {
           backgroundColor: 'blue',
           borderRadius: scale(25),
           justifyContent: 'center',
+          marginBottom:scale(15)
         //   marginVertical: scale(15),
         }}>
         {!this.props.loading ? (

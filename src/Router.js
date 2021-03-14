@@ -11,6 +11,9 @@ import TabSeven from './containers/NextTab/TabSeven'
 import TabEight from './containers/NextTab/TabEight'
 import A from './containers';
 import TabAll from './containers/NextTab/TabAll';
+import Info from './containers/Info/Index';
+import InfoTwo from './containers/Info/InfoTwo';
+import Send from './containers/Send';
 
 const Stack = createStackNavigator();
 
@@ -27,7 +30,9 @@ function MyStack() {
       <Stack.Screen name="TabSeven" component={TabSeven} />
       <Stack.Screen name="TabEight" component={TabEight} />
       <Stack.Screen name="TabAll" component={TabAll} />
-      <Stack.Screen name="A" component={A} />
+      <Stack.Screen name="Info" component={Info} />
+      <Stack.Screen name="InfoTwo" component={InfoTwo} />
+      <Stack.Screen name="Send" component={Send} />
     </Stack.Navigator>
   );
 }
