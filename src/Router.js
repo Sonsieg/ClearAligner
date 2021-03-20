@@ -14,12 +14,14 @@ import TabAll from './containers/NextTab/TabAll';
 import Info from './containers/Info/Index';
 import InfoTwo from './containers/Info/InfoTwo';
 import Send from './containers/Send';
+import TestReduxClass from './TestReduxClass';
 
 const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator initialRouteName="Intro" headerMode="none">
+    <Stack.Navigator initialRouteName="TestReduxClass" headerMode="none">
+      <Stack.Screen name="TestReduxClass" component={TestReduxClass} />
       <Stack.Screen name="Intro" component={Intro} />
       <Stack.Screen name="TabOne" component={TabOne} />
       <Stack.Screen name="TabTwo" component={TabTwo} />

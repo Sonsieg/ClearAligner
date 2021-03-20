@@ -1,36 +1,37 @@
 import React, {Component} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {testReduxAction} from './containers/store/action';
+import ImagePicker from 'react-native-image-picker'
 class TestReduxClass extends Component {
   //Doi chut xem lai cach viet class
-
+  take=()=>{
+    ImagePicker.showImagePicker((response) => {
+      if (response.didCancel) {
+      } else if (response.error) {
+        console.log('ImagePicker Error: ');
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+        Alert.alert(response.customButton);
+      } else {
+        const sourceImg = {uri: response.uri};
+        console.log('sourceImg', sourceImg);
+      }
+  });
+  }
   /// class dai vcl
   render() {
-    console.log('hello',this.props.list)
     return (
       <View>
-        <Text>Test redux voi class : {this.props.testData}</Text>
+        <Text>Test redux voi class</Text>
         <TouchableOpacity
           style={{padding: 3, backgroundColor: 'tomato'}}
-          // onPress={this.cong}
+          onPress={this.take}
         >
-          <Text>{this.props.list}</Text>
+          {/* <Text>{this.props.list}</Text> */}
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    testData: state.testData,
-    list: state.list,
-  };
-};
-const mapDispatchToProps ={
 
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(TestReduxClass);
+export default TestReduxClass;
