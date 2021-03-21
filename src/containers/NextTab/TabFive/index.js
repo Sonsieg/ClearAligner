@@ -6,7 +6,9 @@ import Top from '../../../components/Top';
 import vari from '../../../../theme/variables/platform';
 import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
-export default class TabFive extends Component {
+import { connect } from 'react-redux';
+import {setSaveImgFiveAction} from '../../../store/action'
+class TabFive extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +28,7 @@ export default class TabFive extends Component {
         const sourceImg = {uri: response.uri};
         console.log('sourceImg5', sourceImg);
         this.setState({imgSource: response});
+        this.props.setSaveImgFiveAction(response);
       }
     });
   };
@@ -88,3 +91,11 @@ export default class TabFive extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  imgOne: state.imgOne,
+});
+const mapDispatchToProps ={
+  setSaveImgFiveAction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabFive);
