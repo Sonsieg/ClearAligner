@@ -13,7 +13,7 @@ class TestReduxClass extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        console.log('sourceImg', sourceImg);
+        // console.log('sourceImg', sourceImg);
       }
   });
   }

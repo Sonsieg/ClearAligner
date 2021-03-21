@@ -26,9 +26,9 @@ class TabTwo extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        console.log('sourceImg2', sourceImg);
+        // console.log('sourceImg2', sourceImg);
         this.setState({imgSource: response});
-        this.props.setSaveImgTwoAction(response);
+        this.props.setSaveImgTwoAction(response.uri);
       }
     });
   };

@@ -32,9 +32,8 @@ class TabOne extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        console.log('sourceImg1', sourceImg);
         this.setState({imgSource: response});
-        this.props.setSaveImgOneAction(response);
+        this.props.setSaveImgOneAction(response.uri);
       }
     });
   };

@@ -21,14 +21,14 @@ export const initialState = {
   user: [],
   isChanged: false,
   albumMusic: [],
-  imgOne: [],
-  imgTwo: [],
-  imgThree: [],
-  imgFour: [],
-  imgFive: [],
-  imgSix: [],
-  imgSeven: [],
-  imgEight: []
+  imgOne: '',
+  imgTwo: '',
+  imgThree: '',
+  imgFour: '',
+  imgFive: '',
+  imgSix: '',
+  imgSeven: '',
+  imgEight: ''
 };
 
 export default handleActions(

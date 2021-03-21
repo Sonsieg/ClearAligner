@@ -4,7 +4,17 @@ import vari from '../../../theme/variables/platform';
 import asset from '../../asset';
 import {scale} from '../ScaleSheet';
 export default class ImageShow extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      soureLeft: this.props.imgLeft,
+      soureRight: this.props.imgRight,
+    }
+  }
   render() {
+    const {imgLeft, imgRight} = this.props;
+    console.log('imgshow 11', this.state.soureLeft);
+    console.log('imgshow 22', this.state.soureRight)
     return (
       <View
         style={{
@@ -16,8 +26,8 @@ export default class ImageShow extends Component {
           style={{
             width: '47%',
             height: scale(100),
-            backgroundColor: 'red',
             borderRadius: scale(10),
+            borderWidth: 1,
           }}>
           <Image
             style={{
@@ -26,8 +36,8 @@ export default class ImageShow extends Component {
               height: '100%',
               borderRadius: scale(10),
             }}
-            resizeMode="center"
-            source={asset.icongoBack}
+            resizeMode="contain"
+            source={imgLeft ? {uri: `${imgLeft}`} : asset.logo}
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -35,8 +45,9 @@ export default class ImageShow extends Component {
           style={{
             width: '47%',
             height: scale(100),
-            backgroundColor: 'blue',
+            // backgroundColor: 'blue',
             borderRadius: scale(10),
+            borderWidth: 1,
           }}>
           <Image
             style={{
@@ -45,8 +56,8 @@ export default class ImageShow extends Component {
               height: '100%',
               borderRadius: scale(10),
             }}
-            resizeMode="center"
-            source={asset.icongoBack}
+            resizeMode="contain"
+            source={imgRight ? {uri: `${imgRight}`} : asset.logo}
           />
         </TouchableOpacity>
       </View>

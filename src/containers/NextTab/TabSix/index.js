@@ -26,9 +26,9 @@ class TabSix extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        console.log('sourceImg1', sourceImg);
+        // console.log('sourceImg1', sourceImg);
         this.setState({imgSource: response});
-        this.props.setSaveImgSixAction(response);
+        this.props.setSaveImgSixAction(response.uri);
       }
     });
   };

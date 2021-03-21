@@ -26,9 +26,9 @@ class TabSeven extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        console.log('sourceImg1', sourceImg);
+        // console.log('sourceImg1', sourceImg);
         this.setState({imgSource: response});
-        this.props.setSaveImgSevenAction(response);
+        this.props.setSaveImgSevenAction(response.uri);
       }
     });
   };
