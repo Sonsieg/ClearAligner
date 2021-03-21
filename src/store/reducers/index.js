@@ -5,7 +5,14 @@ import {
   setLoginStateAction,
   setLoginUserAction,
   setSaveMusicAction,
-  setSaveImgAction
+  setSaveImgOneAction,
+  setSaveImgTwoAction,
+  setSaveImgThreeAction,
+  setSaveImgFourAction,
+  setSaveImgFiveAction,
+  setSaveImgSixAction,
+  setSaveImgSevenAction,
+  setSaveImgEightAction
 } from '../action';
 // import {} from '../actions';
 export const initialState = {
@@ -14,7 +21,14 @@ export const initialState = {
   user: [],
   isChanged: false,
   albumMusic: [],
-  img: []
+  imgOne: [],
+  imgTwo: [],
+  imgThree: [],
+  imgFour: [],
+  imgFive: [],
+  imgSix: [],
+  imgSeven: [],
+  imgEight: []
 };
 
 export default handleActions(
@@ -39,9 +53,37 @@ export default handleActions(
       ...state,
       albumMusic: payload,
     }),
-    [setSaveMusicAction.toString()]: (state = initialState, {payload}) => ({
+    [setSaveImgOneAction.toString()]: (state = initialState, {payload}) => ({
       ...state,
-      img: payload,
+      imgOne: payload,
+    }),
+    [setSaveImgTwoAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgTwo: payload,
+    }),
+    [setSaveImgThreeAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgThree: payload,
+    }),
+    [setSaveImgFourAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgFour: payload,
+    }),
+    [setSaveImgFiveAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgFive: payload,
+    }),
+    [setSaveImgSixAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgSix: payload,
+    }),
+    [setSaveImgSevenAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgSeven: payload,
+    }),
+    [setSaveImgEightAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      imgEight: payload,
     }),
   },
   initialState,

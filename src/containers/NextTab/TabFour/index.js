@@ -6,6 +6,8 @@ import Top from '../../../components/Top';
 import vari from '../../../../theme/variables/platform';
 import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
+import { connect } from 'react-redux';
+import {setSaveImgFourAction} from '../../../store/action'
 class TabFour extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +28,7 @@ class TabFour extends Component {
         const sourceImg = {uri: response.uri};
         console.log('sourceImg4', sourceImg);
         this.setState({imgSource: response});
+        this.props.setSaveImgFourAction(response);
       }
     });
   };
@@ -88,4 +91,11 @@ class TabFour extends Component {
     );
   }
 }
-export default TabFour;
+const mapStateToProps = (state) => ({
+  imgOne: state.imgOne,
+});
+const mapDispatchToProps ={
+  setSaveImgFourAction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabFour);

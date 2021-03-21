@@ -6,7 +6,9 @@ import Top from '../../../components/Top';
 import vari from '../../../../theme/variables/platform';
 import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
-export default class TabTwo extends Component {
+import { connect } from 'react-redux';
+import {setSaveImgTwoAction} from '../../../store/action'
+class TabTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,6 +28,7 @@ export default class TabTwo extends Component {
         const sourceImg = {uri: response.uri};
         console.log('sourceImg2', sourceImg);
         this.setState({imgSource: response});
+        this.props.setSaveImgTwoAction(response);
       }
     });
   };
@@ -90,3 +93,11 @@ export default class TabTwo extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  // imgOne: state.imgOne,
+});
+const mapDispatchToProps ={
+  setSaveImgTwoAction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TabTwo);
