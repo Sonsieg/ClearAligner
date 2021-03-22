@@ -14,6 +14,19 @@ import {scale} from '../../components/ScaleSheet';
 import Top from '../../components/Top';
 
 export default class Info extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      birth: 'DD-MM-YYYY',
+      gender: 'MALE',
+      case: 'UPPER',
+      treatmen: '',
+      require: '',
+      crown: '',
+      comment: '',
+    };
+  }
   render() {
     return (
       <ImageBackground
@@ -26,7 +39,14 @@ export default class Info extends Component {
         <ScrollView
           style={{marginHorizontal: scale(20)}}
           showsVerticalScrollIndicator={false}>
-          <InputText title="YOUR NAME" secureTextEntry={false} />
+          <InputText
+            title="YOUR NAME"
+            secureTextEntry={false}
+            value={this.state.name}
+            onChangeText={(value) => {
+              this.setState({name: value});
+            }}
+          />
           <Text
             style={{
               fontSize: scale(16),
@@ -50,7 +70,7 @@ export default class Info extends Component {
                 fontSize: scale(14),
                 marginLeft: scale(10),
               }}>
-              23/10/1999
+              {this.state.birth}
             </Text>
           </TouchableOpacity>
           <Text
@@ -136,13 +156,35 @@ export default class Info extends Component {
           <InputText
             title="WHEN DO YOU WISH WANT YOUR TREATMENT TO COMMENCE"
             secureTextEntry={false}
+            value={this.state.treatmen}
+            onChangeText={(value) => {
+              this.setState({treatmen: value});
+            }}
           />
-          <InputText title="REQUIREMENTS" secureTextEntry={false} />
+          <InputText
+            title="REQUIREMENTS"
+            secureTextEntry={false}
+            value={this.state.require}
+            onChangeText={(value) => {
+              this.setState({require: value});
+            }}
+          />
           <InputText
             title="ANY CROWNS, CAP, IMPLANTS?"
             secureTextEntry={false}
+            value={this.state.crown}
+            onChangeText={(value) => {
+              this.setState({crown: value});
+            }}
           />
-          <InputText title="OTHER COMMENTS" secureTextEntry={false} />
+          <InputText
+            title="OTHER COMMENTS"
+            secureTextEntry={false}
+            value={this.state.comment}
+            onChangeText={(value) => {
+              this.setState({comment: value});
+            }}
+          />
           <Text
             style={{
               fontSize: scale(14),
@@ -151,7 +193,10 @@ export default class Info extends Component {
             }}>
             **This app is for visual assesssment only
           </Text>
-          <ButtonTab title="Next" onPress={()=>this.props.navigation.navigate('InfoTwo')}/>
+          <ButtonTab
+            title="Next"
+            onPress={() => this.props.navigation.navigate('InfoTwo')}
+          />
         </ScrollView>
       </ImageBackground>
     );
