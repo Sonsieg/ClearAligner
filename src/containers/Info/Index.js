@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {
   ImageBackground,
   ScrollView,
+  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
@@ -54,17 +55,7 @@ export default class Info extends Component {
             }}>
             DATE OF BIRTH
           </Text>
-          <TouchableOpacity
-            style={{
-              width: '100%',
-              height: scale(50),
-              // borderWidth: 1,
-              color: 'blue',
-              backgroundColor: 'white',
-              borderRadius: 5,
-              marginBottom: scale(10),
-              justifyContent: 'center',
-            }}>
+          <TouchableOpacity style={styles.birth}>
             <Text
               style={{
                 fontSize: scale(14),
@@ -82,29 +73,25 @@ export default class Info extends Component {
           </Text>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
-              style={{
-                width: '50%',
-                height: scale(50),
-                // borderWidth: 1,
-                color: 'blue',
-                backgroundColor: 'white',
-                borderRadius: 5,
-                marginBottom: scale(10),
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.touch,
+                {
+                  backgroundColor:
+                    this.state.gender === 'MALE' ? 'tomato' : 'white',
+                },
+              ]}
+              onPress={() => this.setState({gender: 'MALE'})}>
               <Text style={{textAlign: 'center'}}>MALE</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                width: '50%',
-                height: scale(50),
-                // borderWidth: 1,
-                color: 'blue',
-                backgroundColor: 'white',
-                borderRadius: 5,
-                marginBottom: scale(10),
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.touch,
+                {
+                  backgroundColor:
+                    this.state.gender === 'FEMALE' ? 'tomato' : 'white',
+                },
+              ]}
+              onPress={() => this.setState({gender: 'FEMALE'})}>
               <Text style={{textAlign: 'center'}}>FEMALE</Text>
             </TouchableOpacity>
           </View>
@@ -117,39 +104,36 @@ export default class Info extends Component {
           </Text>
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
-              style={{
-                width: '33%',
-                height: scale(50),
-                // borderWidth: 1,
-                color: 'blue',
-                backgroundColor: 'white',
-                borderRadius: 5,
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.case,
+                {
+                  backgroundColor:
+                    this.state.case === 'UPPER' ? 'tomato' : 'white',
+                },
+              ]}
+              onPress={() => this.setState({case: 'UPPER'})}>
               <Text style={{textAlign: 'center'}}>UPPER</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                width: '33%',
-                height: scale(50),
-                // borderWidth: 1,
-                color: 'blue',
-                backgroundColor: 'white',
-                borderRadius: 5,
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.case,
+                {
+                  backgroundColor:
+                    this.state.case === 'LOWER' ? 'tomato' : 'white',
+                },
+              ]}
+              onPress={() => this.setState({case: 'LOWER'})}>
               <Text style={{textAlign: 'center'}}>LOWER</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={{
-                width: '33%',
-                height: scale(50),
-                // borderWidth: 1,
-                color: 'blue',
-                backgroundColor: 'white',
-                borderRadius: 5,
-                justifyContent: 'center',
-              }}>
+              style={[
+                styles.case,
+                {
+                  backgroundColor:
+                    this.state.case === 'BOTH' ? 'tomato' : 'white',
+                },
+              ]}
+              onPress={() => this.setState({case: 'BOTH'})}>
               <Text style={{textAlign: 'center'}}>BOTH</Text>
             </TouchableOpacity>
           </View>
@@ -202,3 +186,30 @@ export default class Info extends Component {
     );
   }
 }
+const styles = StyleSheet.create({
+  birth: {
+    width: '100%',
+    height: scale(50),
+    color: 'blue',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    marginBottom: scale(10),
+    justifyContent: 'center',
+  },
+  touch: {
+    width: '50%',
+    height: scale(50),
+    color: 'blue',
+    borderRadius: 5,
+    marginBottom: scale(10),
+    justifyContent: 'center',
+  },
+  case: {
+    width: '33%',
+    height: scale(50),
+    color: 'blue',
+    borderRadius: 5,
+    marginBottom: scale(10),
+    justifyContent: 'center',
+  },
+});

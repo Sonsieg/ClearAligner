@@ -7,6 +7,18 @@ import {scale} from '../../components/ScaleSheet';
 import Top from '../../components/Top';
 
 export default class InfoTwo extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dentist: '',
+      praticeName: '',
+      praticeAdress: '',
+      youAdresss: '',
+      postCode: '',
+      telephone: '',
+      yourEmail: '',
+    };
+  }
   render() {
     return (
       <ImageBackground
@@ -19,13 +31,48 @@ export default class InfoTwo extends Component {
         <ScrollView
           style={{marginHorizontal: scale(20)}}
           showsVerticalScrollIndicator={false}>
-          <InputText title="DENTIST NAME" secureTextEntry={false} />
-          <InputText title="PRACTICE NAME" secureTextEntry={false} />
-          <InputText title="PRACTICE ADDRESS" secureTextEntry={false} />
-          <InputText title="YOUR ADDRESS" secureTextEntry={false} />
-          <InputText title="POSTCODE" secureTextEntry={false} />
-          <InputText title="TELEPHONE" secureTextEntry={false} />
-          <InputText title="YOUR EMAIL" secureTextEntry={false} />
+          <InputText title="DENTIST NAME" secureTextEntry={false} 
+          value={this.state.dentist}
+          onChangeText={(value) => {
+            this.setState({dentist: value});
+          }}
+          />
+          <InputText title="PRACTICE NAME" secureTextEntry={false} 
+          value={this.state.praticeName}
+          onChangeText={(value) => {
+            this.setState({praticeName: value});
+          }}
+          />
+          <InputText title="PRACTICE ADDRESS" secureTextEntry={false} 
+          value={this.state.praticeAdress}
+          onChangeText={(value) => {
+            this.setState({praticeAdress: value});
+          }}
+          />
+          <InputText title="YOUR ADDRESS" secureTextEntry={false} 
+          value={this.state.youAdresss}
+          onChangeText={(value) => {
+            this.setState({youAdresss: value});
+          }}
+          />
+          <InputText title="POSTCODE" secureTextEntry={false} 
+          value={this.state.postCode}
+          onChangeText={(value) => {
+            this.setState({postCode: value});
+          }}
+          />
+          <InputText title="TELEPHONE" secureTextEntry={false} 
+          value={this.state.telephone}
+          onChangeText={(value) => {
+            this.setState({telephone: value});
+          }}
+          />
+          <InputText title="YOUR EMAIL" secureTextEntry={false} 
+          value={this.state.yourEmail}
+          onChangeText={(value) => {
+            this.setState({yourEmail: value});
+          }}
+          />
           <Text
             style={{
               fontSize: scale(14),
