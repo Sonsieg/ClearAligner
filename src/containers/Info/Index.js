@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  Alert,
   ImageBackground,
   ScrollView,
   StyleSheet,
@@ -28,6 +29,36 @@ export default class Info extends Component {
       comment: '',
     };
   }
+  validateFied = (name, birth) => {
+    if (name === '' || birth === 'DD-MM-YYYY') {
+      Alert.alert(
+        'Thông báo',
+        `Vui lòng điền đầy đủ thông tin`,
+        [{text: 'Đồng ý'}],
+        {cancelable: false},
+      );
+      return false;
+    } else return true;
+  };
+  goSend = (values) => {
+    const infoInput = {};
+    if (
+      this.validateFied(
+        values.name,
+        values.birth,
+      )
+    ) {
+      infoInput.name = values.name;
+      infoInput.birth = values.birth;
+      infoInput.gender = values.gender;
+      infoInput.case = values.case;
+      infoInput.treatmen = values.treatmen;
+      infoInput.require = values.require;
+      infoInput.crown = values.crown;
+      infoInput.comment = values.comment;
+      console.log('object', infoInput);
+    }
+  };
   render() {
     return (
       <ImageBackground
@@ -180,6 +211,18 @@ export default class Info extends Component {
           <ButtonTab
             title="Next"
             onPress={() => this.props.navigation.navigate('InfoTwo')}
+            onPress={() =>
+              this.goSend({
+                name: this.state.name,
+                birth: this.state.birth,
+                gender: this.state.gender,
+                case: this.state.case,
+                treatmen: this.state.treatmen,
+                require: this.state.require,
+                crown: this.state.crown,
+                comment: this.state.comment,
+              })
+            }
           />
         </ScrollView>
       </ImageBackground>
