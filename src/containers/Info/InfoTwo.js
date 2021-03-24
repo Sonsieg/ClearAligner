@@ -6,8 +6,9 @@ import InputText from '../../components/InputText';
 import {scale} from '../../components/ScaleSheet';
 import Top from '../../components/Top';
 import {checkPhone, checkValidMail} from '../../utils/validate';
+import {setSaveInfoTwoAction} from '../../store/action/index';
 
-export default class InfoTwo extends Component {
+class InfoTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,10 +56,10 @@ export default class InfoTwo extends Component {
       infoInput = {...this.state};
       // console.log('object', infoInput);
       this.props.navigation.navigate('Send');
+      this.props.setSaveInfoTwoAction(infoInput);
     }
   };
   render() {
-    console.log('eee', this.state.dentist);
     return (
       <ImageBackground
         source={asset.background}
@@ -140,3 +141,9 @@ export default class InfoTwo extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = {
+  setSaveInfoTwoAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InfoTwo);

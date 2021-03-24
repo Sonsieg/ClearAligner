@@ -9,13 +9,15 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {connect} from 'react-redux';
 import asset from '../../asset';
 import ButtonTab from '../../components/ButtonTab';
 import InputText from '../../components/InputText';
 import {scale} from '../../components/ScaleSheet';
 import Top from '../../components/Top';
+import {setSaveInfoOneAction} from '../../store/action/index';
 
-export default class Info extends Component {
+class Info extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,10 +55,11 @@ export default class Info extends Component {
       infoInput.comment = values.comment;
       console.log('object', infoInput);
       this.props.navigation.navigate('InfoTwo');
+      this.props.setSaveInfoOneAction(infoInput);
     }
   };
   render() {
-    console.log('aeeeeee', this.state.name)
+    console.log('aeeeeee', this.state.name);
     return (
       <ImageBackground
         source={asset.background}
@@ -225,6 +228,12 @@ export default class Info extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = {
+  setSaveInfoOneAction,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Info);
 const styles = StyleSheet.create({
   birth: {
     width: '100%',

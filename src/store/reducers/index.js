@@ -12,7 +12,10 @@ import {
   setSaveImgFiveAction,
   setSaveImgSixAction,
   setSaveImgSevenAction,
-  setSaveImgEightAction
+  setSaveImgEightAction,
+  setSaveInfoOneAction,
+  setSaveInfoTwoAction,
+  setSaveInfoAllAction
 } from '../action';
 // import {} from '../actions';
 export const initialState = {
@@ -28,7 +31,10 @@ export const initialState = {
   imgFive: '',
   imgSix: '',
   imgSeven: '',
-  imgEight: ''
+  imgEight: '',
+  dataOne: [],
+  dataTwo: [],
+  dataAll: []
 };
 
 export default handleActions(
@@ -84,6 +90,18 @@ export default handleActions(
     [setSaveImgEightAction.toString()]: (state = initialState, {payload}) => ({
       ...state,
       imgEight: payload,
+    }),
+    [setSaveInfoOneAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      dataOne: payload,
+    }),
+    [setSaveInfoTwoAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      dataTwo: payload,
+    }),
+    [setSaveInfoAllAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      dataAll: payload,
     }),
   },
   initialState,

@@ -20,6 +20,10 @@ const actions = createActions({
   SET_SAVE_IMG_SIX_ACTION: null,
   SET_SAVE_IMG_SEVEN_ACTION: null,
   SET_SAVE_IMG_EIGHT_ACTION: null,
+  SET_SAVE_INFO_ONE_ACTION: null,
+  SET_SAVE_INFO_TWO_ACTION: null,
+  SET_SAVE_INFO_ALL_ACTION: null,
+
 });
 
 export const {
@@ -41,5 +45,8 @@ export const {
   setSaveImgFiveAction,
   setSaveImgSixAction,
   setSaveImgSevenAction,
-  setSaveImgEightAction
+  setSaveImgEightAction,
+  setSaveInfoOneAction,
+  setSaveInfoTwoAction,
+  setSaveInfoAllAction,
 } = actions;
