@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, Text, TouchableOpacity, View} from 'react-native';
+import {Alert, Image, ImageBackground, Text, TouchableOpacity, View} from 'react-native';
 import asset from '../../../asset';
 import {scale} from '../../../components/ScaleSheet';
 import Top from '../../../components/Top';

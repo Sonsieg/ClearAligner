@@ -16,7 +16,8 @@ import InputText from '../../components/InputText';
 import {scale} from '../../components/ScaleSheet';
 import Top from '../../components/Top';
 import {setSaveInfoOneAction} from '../../store/action/index';
-
+import DateTimePicker from 'react-native-modal-datetime-picker';
+import moment from 'moment';
 class Info extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +30,7 @@ class Info extends Component {
       require: '',
       crown: '',
       comment: '',
+      isDateTimePickerVisible: false,
     };
   }
   validateFied = (name, birth) => {
@@ -58,6 +60,21 @@ class Info extends Component {
       this.props.setSaveInfoOneAction(infoInput);
     }
   };
+  showDateTimePicker = () => {
+    this.setState({isDateTimePickerVisible: true});
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({isDateTimePickerVisible: false});
+  };
+
+  handleDatePicked = (date) => {
+    console.log('A date has been picked: ', date);
+    this.hideDateTimePicker();
+    this.setState({
+      birth: moment(date).format('DD-MM-YYYY')
+    })
+  };
   render() {
     console.log('aeeeeee', this.state.name);
     return (
@@ -86,7 +103,9 @@ class Info extends Component {
             }}>
             DATE OF BIRTH
           </Text>
-          <TouchableOpacity style={styles.birth}>
+          <TouchableOpacity
+            style={styles.birth}
+            onPress={this.showDateTimePicker}>
             <Text
               style={{
                 fontSize: scale(14),
@@ -222,6 +241,11 @@ class Info extends Component {
                 comment: this.state.comment,
               })
             }
+          />
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
           />
         </ScrollView>
       </ImageBackground>

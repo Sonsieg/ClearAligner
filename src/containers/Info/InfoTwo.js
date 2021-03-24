@@ -9,6 +9,7 @@ import {checkPhone, checkValidMail} from '../../utils/validate';
 import {setSaveInfoTwoAction} from '../../store/action/index';
 import { connect } from 'react-redux';
 
+
 class InfoTwo extends Component {
   constructor(props) {
     super(props);
