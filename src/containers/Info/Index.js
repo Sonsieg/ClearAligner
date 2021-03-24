@@ -42,12 +42,7 @@ export default class Info extends Component {
   };
   goSend = (values) => {
     const infoInput = {};
-    if (
-      this.validateFied(
-        values.name,
-        values.birth,
-      )
-    ) {
+    if (this.validateFied(values.name, values.birth)) {
       infoInput.name = values.name;
       infoInput.birth = values.birth;
       infoInput.gender = values.gender;
@@ -57,9 +52,11 @@ export default class Info extends Component {
       infoInput.crown = values.crown;
       infoInput.comment = values.comment;
       console.log('object', infoInput);
+      this.props.navigation.navigate('InfoTwo');
     }
   };
   render() {
+    console.log('aeeeeee', this.state.name)
     return (
       <ImageBackground
         source={asset.background}
@@ -210,7 +207,6 @@ export default class Info extends Component {
           </Text>
           <ButtonTab
             title="Next"
-            onPress={() => this.props.navigation.navigate('InfoTwo')}
             onPress={() =>
               this.goSend({
                 name: this.state.name,

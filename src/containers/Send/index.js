@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, Text, View} from 'react-native';
+import {Image, ImageBackground, Linking, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import asset from '../../asset';
 import {scale} from '../../components/ScaleSheet';
@@ -39,18 +39,23 @@ export default class Send extends Component {
             Successfully sent
           </Text>
           <Text
-            style={{fontSize: scale(16), textAlign: 'center', color: 'white', marginVertical:scale(20)}}>
+            style={{
+              fontSize: scale(16),
+              textAlign: 'center',
+              color: 'white',
+              marginVertical: scale(20),
+            }}>
             For any help or support, please message us
           </Text>
           <TouchableOpacity
-        //   onPress={}
+            onPress={() => Linking.openURL('mailto:sonsieg1999@gmail.com')}
             style={{
               width: '100%',
               height: scale(50),
               justifyContent: 'center',
               borderWidth: 2,
               borderColor: 'white',
-              borderRadius: scale(40)
+              borderRadius: scale(40),
             }}>
             <Text
               style={{
@@ -62,14 +67,14 @@ export default class Send extends Component {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={()=>this.props.navigation.navigate('Intro')}
+            onPress={() => this.props.navigation.navigate('Intro')}
             style={{
               width: '100%',
               height: scale(50),
               justifyContent: 'center',
               backgroundColor: 'white',
               borderRadius: scale(40),
-              marginVertical:scale(20)
+              marginVertical: scale(20),
             }}>
             <Text
               style={{

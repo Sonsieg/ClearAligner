@@ -20,7 +20,7 @@ const Stack = createStackNavigator();
 
 function MyStack() {
   return (
-    <Stack.Navigator initialRouteName="Info" headerMode="none">
+    <Stack.Navigator initialRouteName="Intro" headerMode="none">
       <Stack.Screen name="TestReduxClass" component={TestReduxClass} />
       <Stack.Screen name="Intro" component={Intro} />
       <Stack.Screen name="TabOne" component={TabOne} />
