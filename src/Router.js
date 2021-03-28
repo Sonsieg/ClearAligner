@@ -14,6 +14,7 @@ import Info from './containers/Info/Index';
 import InfoTwo from './containers/Info/InfoTwo';
 import Send from './containers/Send';
 import TestReduxClass from './TestReduxClass';
+import Upload from './containers/Send/Upload';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,7 @@ function MyStack() {
       <Stack.Screen name="TabAll" component={TabAll} />
       <Stack.Screen name="Info" component={Info} />
       <Stack.Screen name="InfoTwo" component={InfoTwo} />
+      <Stack.Screen name="Upload" component={Upload} />
       <Stack.Screen name="Send" component={Send} />
     </Stack.Navigator>
   );

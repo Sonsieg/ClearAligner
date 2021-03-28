@@ -17,7 +17,15 @@ class TabThree extends Component {
   }
 
   take = () => {
-    ImagePicker.showImagePicker((response) => {
+    const options = {
+      maxWidth: 2000,
+      maxHeight: 2000,
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    ImagePicker.showImagePicker(options,(response) => {
       if (response.didCancel) {
       } else if (response.error) {
         console.log('ImagePicker Error: ');

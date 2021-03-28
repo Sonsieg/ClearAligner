@@ -15,16 +15,54 @@ import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
 import {connect} from 'react-redux';
 import {setSaveImgOneAction} from '../../../store/action';
+import * as Progress from 'react-native-progress';
+import storage from '@react-native-firebase/storage';
 class TabOne extends Component {
   constructor(props) {
     super(props);
     this.state = {
       imgSource: '',
+      image: null,
+      uploading: false,
+      transferred: 0,
     };
   }
-
+  uploadImage = async () => {
+    const {uri} = this.state.image;
+    const filename = uri.substring(uri.lastIndexOf('/') + 1);
+    const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
+    this.setState({uploading: true});
+    this.setState({transferred: 0});
+    const task = storage().ref(filename).putFile(uploadUri);
+    // set progress state
+    task.on('state_changed', (snapshot) => {
+      this.setState({
+        transferred:
+          Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 10000,
+      });
+    });
+    try {
+      await task;
+    } catch (e) {
+      console.error(e);
+    }
+    this.setState({uploading: false});
+    Alert.alert(
+      'Photo uploaded!',
+      'Your photo has been uploaded to Firebase Cloud Storage!',
+    );
+    this.setState({image: null});
+  };
   take = () => {
-    ImagePicker.showImagePicker((response) => {
+    const options = {
+      maxWidth: 2000,
+      maxHeight: 2000,
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+    };
+    ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
       } else if (response.error) {
         console.log('ImagePicker Error: ');
@@ -33,6 +71,7 @@ class TabOne extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
+        // this.setState({image: sourceImg});
         this.setState({imgSource: response});
         this.props.setSaveImgOneAction(response.uri);
       }
@@ -64,7 +103,10 @@ class TabOne extends Component {
             style={{fontSize: scale(20), color: 'blue', textAlign: 'center'}}>
             Extra - Oral Views 1:8
           </Text>
-          <TouchableOpacity onPress={this.take}>
+          <TouchableOpacity
+            onPress={this.take}
+            // onPress={this.selectImage}
+          >
             <View
               style={{
                 width: '100%',
@@ -90,9 +132,21 @@ class TabOne extends Component {
               )}
             </View>
           </TouchableOpacity>
+          {/* {this.state.uploading ? (
+            <View style={{marginTop: 20}}>
+              <Progress.Bar progress={this.state.transferred} width={300} />
+            </View>
+          ) : (
+            <TouchableOpacity
+              style={{width: 700, height: 50}}
+              onPress={this.uploadImage}>
+              <Text style={{fontSize: 20}}>Upload image</Text>
+            </TouchableOpacity>
+          )} */}
           <ButtonTab
             title="Next"
             onPress={() => this.props.navigation.navigate('TabTwo')}
+            // onPress={this.uploadImage}
           />
         </View>
       </ImageBackground>

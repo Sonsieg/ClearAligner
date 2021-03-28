@@ -7,8 +7,7 @@ import {scale} from '../../components/ScaleSheet';
 import Top from '../../components/Top';
 import {checkPhone, checkValidMail} from '../../utils/validate';
 import {setSaveInfoTwoAction} from '../../store/action/index';
-import { connect } from 'react-redux';
-
+import {connect} from 'react-redux';
 
 class InfoTwo extends Component {
   constructor(props) {
@@ -56,8 +55,8 @@ class InfoTwo extends Component {
     console.log(check);
     if (check) {
       infoInput = {...this.state};
-      // console.log('object', infoInput);
-      this.props.navigation.navigate('Send');
+      console.log('object Info2', infoInput);
+      this.props.navigation.navigate('Upload');
       this.props.setSaveInfoTwoAction(infoInput);
     }
   };

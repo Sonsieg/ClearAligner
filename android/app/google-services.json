@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "978838209159",
+    "project_id": "clear-smile",
+    "storage_bucket": "clear-smile.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:978838209159:android:a4e2c39a205728e640ee22",
+        "android_client_info": {
+          "package_name": "com.clearaligner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "978838209159-plsl9ssl5aim1de3jl85a1ht83hi53pp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJHa6M8P_NYjQm8zoCtNcJ2tcT-ctItE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978838209159-plsl9ssl5aim1de3jl85a1ht83hi53pp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
