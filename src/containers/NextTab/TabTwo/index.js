@@ -35,8 +35,8 @@ class TabTwo extends Component {
       } else {
         const sourceImg = {uri: response.uri};
         // console.log('sourceImg2', sourceImg);
-        this.setState({imgSource: response});
-        this.props.setSaveImgTwoAction(response.uri);
+        this.setState({imgSource: sourceImg});
+        this.props.setSaveImgTwoAction(sourceImg);
       }
     });
   };

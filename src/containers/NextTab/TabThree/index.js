@@ -35,8 +35,8 @@ class TabThree extends Component {
       } else {
         const sourceImg = {uri: response.uri};
         // console.log('sourceImg3', sourceImg);
-        this.setState({imgSource: response});
-        this.props.setSaveImgThreeAction(response.uri);
+        this.setState({imgSource: sourceImg});
+        this.props.setSaveImgThreeAction(sourceImg);
       }
     });
   };

@@ -34,9 +34,8 @@ class TabFive extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        // console.log('sourceImg5', sourceImg);
-        this.setState({imgSource: response});
-        this.props.setSaveImgFiveAction(response.uri);
+        this.setState({imgSource: sourceImg});
+        this.props.setSaveImgFiveAction(sourceImg);
       }
     });
   };

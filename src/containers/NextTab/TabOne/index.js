@@ -71,9 +71,8 @@ class TabOne extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        // this.setState({image: sourceImg});
-        this.setState({imgSource: response});
-        this.props.setSaveImgOneAction(response.uri);
+        this.setState({imgSource: sourceImg});
+        this.props.setSaveImgOneAction(sourceImg);
       }
     });
   };
@@ -105,7 +104,6 @@ class TabOne extends Component {
           </Text>
           <TouchableOpacity
             onPress={this.take}
-            // onPress={this.selectImage}
           >
             <View
               style={{
@@ -146,7 +144,6 @@ class TabOne extends Component {
           <ButtonTab
             title="Next"
             onPress={() => this.props.navigation.navigate('TabTwo')}
-            // onPress={this.uploadImage}
           />
         </View>
       </ImageBackground>

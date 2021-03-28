@@ -23,7 +23,7 @@ const actions = createActions({
   SET_SAVE_INFO_ONE_ACTION: null,
   SET_SAVE_INFO_TWO_ACTION: null,
   SET_SAVE_INFO_ALL_ACTION: null,
-
+  SAVE_IMG_DATA_ACTION: null,
 });
 
 export const {
@@ -49,4 +49,5 @@ export const {
   setSaveInfoOneAction,
   setSaveInfoTwoAction,
   setSaveInfoAllAction,
+  saveImgDataAction,
 } = actions;

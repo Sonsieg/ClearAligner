@@ -34,9 +34,8 @@ class TabFour extends Component {
         Alert.alert(response.customButton);
       } else {
         const sourceImg = {uri: response.uri};
-        // console.log('sourceImg4', sourceImg);
-        this.setState({imgSource: response});
-        this.props.setSaveImgFourAction(response.uri);
+        this.setState({imgSource: sourceImg});
+        this.props.setSaveImgFourAction(sourceImg);
       }
     });
   };

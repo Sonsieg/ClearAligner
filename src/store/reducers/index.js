@@ -15,7 +15,8 @@ import {
   setSaveImgEightAction,
   setSaveInfoOneAction,
   setSaveInfoTwoAction,
-  setSaveInfoAllAction
+  setSaveInfoAllAction,
+  saveImgDataAction
 } from '../action';
 // import {} from '../actions';
 export const initialState = {
@@ -34,7 +35,8 @@ export const initialState = {
   imgEight: '',
   dataOne: [],
   dataTwo: [],
-  dataAll: []
+  dataAll: [],
+  dataImg: '',
 };
 
 export default handleActions(
@@ -102,6 +104,10 @@ export default handleActions(
     [setSaveInfoAllAction.toString()]: (state = initialState, {payload}) => ({
       ...state,
       dataAll: payload,
+    }),
+    [saveImgDataAction.toString()]: (state = initialState, {payload}) => ({
+      ...state,
+      dataImg: payload,
     }),
   },
   initialState,

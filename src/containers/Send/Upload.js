@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+  Alert,
   Image,
   ImageBackground,
   Text,
@@ -14,7 +15,7 @@ import storage from '@react-native-firebase/storage';
 import * as Progress from 'react-native-progress';
 import {connect} from 'react-redux';
 
-export default class Upload extends Component {
+class Upload extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,9 +25,10 @@ export default class Upload extends Component {
     };
   }
   uploadImage = async () => {
-    const {uri} = this.state.image;
+    const {dataImg} = this.props;
+    const {uri} = dataImg[0];
     const filename = uri.substring(uri.lastIndexOf('/') + 1);
-    const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
+    const uploadUri = uri;
     this.setState({uploading: true});
     this.setState({transferred: 0});
     const task = storage().ref(filename).putFile(uploadUri);
@@ -49,7 +51,11 @@ export default class Upload extends Component {
     );
     this.setState({image: null});
   };
+
   render() {
+    console.log('data Img', this.props.dataImg);
+    console.log('data One', this.props.dataOne);
+    console.log('data Two', this.props.dataTwo);
     return (
       <ImageBackground
         source={asset.backgroundend}
@@ -76,19 +82,16 @@ export default class Upload extends Component {
             resizeMode="cover"
             source={asset.fly}
           />
-          <ButtonTab
-            title="Upload the picture"
-            // onPress={() => this.props.navigation.navigate('TabTwo')}
-            // onPress={this.uploadImage}
-          />
-          <ButtonTab
-            title="Upload myself"
-            // onPress={() => this.props.navigation.navigate('TabTwo')}
-            // onPress={this.uploadImage}
-          />
+          {this.state.uploading ? (
+            <View style={{marginTop: 20}}>
+              <Progress.Bar progress={this.state.transferred} width={300} />
+            </View>
+          ) : (
+            <ButtonTab title="Upload the picture" onPress={this.uploadImage} />
+          )}
+          <ButtonTab title="Upload myself" onPress={this.uploadImage} />
           <ButtonTab
             title="Upload Info"
-            // onPress={() => this.props.navigation.navigate('TabTwo')}
             // onPress={this.uploadImage}
           />
         </View>
@@ -96,3 +99,10 @@ export default class Upload extends Component {
     );
   }
 }
+const mapStateToProps = (state) => ({
+  dataImg: state.dataImg,
+  dataOne: state.dataOne,
+  dataTwo: state.dataTwo,
+});
+const mapDispatchToProps = {};
+export default connect(mapStateToProps, mapDispatchToProps)(Upload);

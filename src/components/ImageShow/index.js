@@ -4,17 +4,13 @@ import vari from '../../../theme/variables/platform';
 import asset from '../../asset';
 import {scale} from '../ScaleSheet';
 export default class ImageShow extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      soureLeft: this.props.imgLeft,
-      soureRight: this.props.imgRight,
-    }
+    this.state = {};
   }
   render() {
     const {imgLeft, imgRight} = this.props;
-    console.log('imgshow 11', this.state.soureLeft);
-    console.log('imgshow 22', this.state.soureRight)
+    console.log('imgeleft', imgLeft);
     return (
       <View
         style={{
@@ -37,7 +33,7 @@ export default class ImageShow extends Component {
               borderRadius: scale(10),
             }}
             resizeMode="contain"
-            source={imgLeft ? {uri: `${imgLeft}`} : asset.logo}
+            source={imgLeft ? imgLeft : asset.logo}
           />
         </TouchableOpacity>
         <TouchableOpacity
@@ -57,7 +53,7 @@ export default class ImageShow extends Component {
               borderRadius: scale(10),
             }}
             resizeMode="contain"
-            source={imgRight ? {uri: `${imgRight}`} : asset.logo}
+            source={imgRight ? imgRight : asset.logo}
           />
         </TouchableOpacity>
       </View>
