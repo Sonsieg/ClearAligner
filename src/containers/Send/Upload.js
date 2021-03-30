@@ -49,7 +49,6 @@ class Upload extends Component {
       'Photo uploaded!',
       'Your photo has been uploaded to Firebase Cloud Storage!',
     );
-    this.setState({image: null});
   };
 
   render() {

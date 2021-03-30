@@ -27,32 +27,6 @@ class TabOne extends Component {
       transferred: 0,
     };
   }
-  uploadImage = async () => {
-    const {uri} = this.state.image;
-    const filename = uri.substring(uri.lastIndexOf('/') + 1);
-    const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
-    this.setState({uploading: true});
-    this.setState({transferred: 0});
-    const task = storage().ref(filename).putFile(uploadUri);
-    // set progress state
-    task.on('state_changed', (snapshot) => {
-      this.setState({
-        transferred:
-          Math.round(snapshot.bytesTransferred / snapshot.totalBytes) * 10000,
-      });
-    });
-    try {
-      await task;
-    } catch (e) {
-      console.error(e);
-    }
-    this.setState({uploading: false});
-    Alert.alert(
-      'Photo uploaded!',
-      'Your photo has been uploaded to Firebase Cloud Storage!',
-    );
-    this.setState({image: null});
-  };
   take = () => {
     const options = {
       maxWidth: 2000,
