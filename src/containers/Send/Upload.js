@@ -24,9 +24,9 @@ class Upload extends Component {
       transferred: 0,
     };
   }
-  uploadImage = async () => {
+  uploadImage = async (i) => {
     const {dataImg} = this.props;
-    const {uri} = dataImg[0];
+    const {uri} = dataImg[i];
     const filename = uri.substring(uri.lastIndexOf('/') + 1);
     const uploadUri = uri;
     this.setState({uploading: true});
@@ -45,12 +45,17 @@ class Upload extends Component {
       console.error(e);
     }
     this.setState({uploading: false});
+  };
+  upImageData = async () => {
+    const {dataImg} = this.props;
+    for (let i = 0; i < dataImg.length; i++) {
+      this.uploadImage(i);
+    }
     Alert.alert(
       'Photo uploaded!',
       'Your photo has been uploaded to Firebase Cloud Storage!',
     );
   };
-
   render() {
     console.log('data Img', this.props.dataImg);
     console.log('data One', this.props.dataOne);
@@ -86,9 +91,9 @@ class Upload extends Component {
               <Progress.Bar progress={this.state.transferred} width={300} />
             </View>
           ) : (
-            <ButtonTab title="Upload the picture" onPress={this.uploadImage} />
+            <ButtonTab title="Upload the picture" onPress={this.upImageData} />
           )}
-          <ButtonTab title="Upload myself" onPress={this.uploadImage} />
+          {/* <ButtonTab title="Upload myself" onPress={this.uploadImage} /> */}
           <ButtonTab
             title="Upload Info"
             // onPress={this.uploadImage}
