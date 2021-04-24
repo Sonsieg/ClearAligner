@@ -52,10 +52,8 @@ class InfoTwo extends Component {
       this.state.telephone,
       this.state.yourEmail,
     );
-    console.log(check);
     if (check) {
       infoInput = {...this.state};
-      console.log('object Info2', infoInput);
       this.props.navigation.navigate('Upload');
       this.props.setSaveInfoTwoAction(infoInput);
     }

@@ -54,7 +54,6 @@ class TabAll extends Component {
       this.state.img7,
       this.state.img8,
     );
-    console.log(check);
     if (check) {
       infoInput = {...this.state};
       console.log('object All tab', infoInput);
@@ -67,8 +66,6 @@ class TabAll extends Component {
   };
   render() {
     const {img1, img2, img3, img4, img5, img6, img7, img8} = this.state;
-    console.log('img1', img1);
-    console.log('img2', img2);
     return (
       <ImageBackground
         source={asset.background}

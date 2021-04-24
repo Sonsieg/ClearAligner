@@ -55,7 +55,6 @@ class Info extends Component {
       infoInput.require = values.require;
       infoInput.crown = values.crown;
       infoInput.comment = values.comment;
-      console.log('object', infoInput);
       this.props.navigation.navigate('InfoTwo');
       this.props.setSaveInfoOneAction(infoInput);
     }
@@ -69,14 +68,12 @@ class Info extends Component {
   };
 
   handleDatePicked = (date) => {
-    console.log('A date has been picked: ', date);
     this.hideDateTimePicker();
     this.setState({
       birth: moment(date).format('DD-MM-YYYY')
     })
   };
   render() {
-    console.log('aeeeeee', this.state.name);
     return (
       <ImageBackground
         source={asset.background}

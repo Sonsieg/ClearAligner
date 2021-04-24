@@ -10,7 +10,6 @@ export default class ImageShow extends Component {
   }
   render() {
     const {imgLeft, imgRight} = this.props;
-    console.log('imgeleft', imgLeft);
     return (
       <View
         style={{
