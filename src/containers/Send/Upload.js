@@ -70,7 +70,6 @@ class Upload extends Component {
     this.props.navigation.navigate('Send');
   };
   render() {
-    console.log('this is data', this.state.data);
     return (
       <ImageBackground
         source={asset.backgroundend}
