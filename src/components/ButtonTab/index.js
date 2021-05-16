@@ -1,29 +1,21 @@
 import React, {Component} from 'react';
-import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
-import {scale} from '../ScaleSheet';
+import {
+  ActivityIndicator,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
+import styles from '../styles';
 
 export class ButtonTab extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const {onPress, loading} = this.props;
+    const {onPress} = this.props;
     return (
-      <TouchableOpacity
-        onPress={onPress}
-        style={{
-          width: '100%',
-          height: scale(50),
-          backgroundColor: 'blue',
-          borderRadius: scale(25),
-          justifyContent: 'center',
-          marginBottom: scale(15),
-        }}>
+      <TouchableOpacity onPress={onPress} style={styles.touch}>
         {!this.props.loading ? (
-          <Text
-            style={{textAlign: 'center', fontSize: scale(20), color: 'white'}}>
-            {this.props.title}
-          </Text>
+          <Text style={styles.text}>{this.props.title}</Text>
         ) : (
           <ActivityIndicator size="small" color="white" />
         )}

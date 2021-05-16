@@ -1,0 +1,143 @@
+import {StyleSheet} from 'react-native';
+import {scale} from '../components/ScaleSheet';
+import vari from '../../theme/variables/platform';
+export default StyleSheet.create({
+  logo: {
+    fontSize: scale(50),
+    color: 'black',
+    textAlign: 'center',
+  },
+  viewTab: {
+    width: '100%',
+    height: '45%',
+    backgroundColor: '#C5E6EF',
+    marginBottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  viewBottom: {
+    height: '55%',
+    backgroundColor: 'white',
+    borderRadius: scale(30),
+    flex: 1,
+  },
+  viewText: {
+    marginHorizontal: scale(20),
+    justifyContent: 'space-around',
+    height: '85%',
+    marginTop: scale(30),
+  },
+  viewOne: {
+    marginHorizontal: scale(20),
+    justifyContent: 'space-around',
+    marginVertical: scale(20),
+    height: '80%',
+  },
+  viewTwo: {
+    width: '100%',
+    height: (vari.width * 1) / 2,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+  },
+  imgOne: {
+    height: (vari.width * 0.9) / 2,
+    alignItems: 'center',
+    width: '100%',
+  },
+  textOne: {fontSize: scale(20), color: 'blue', textAlign: 'center'},
+  viewThree: {
+    width: '100%',
+    height: (vari.width * 1) / 2,
+    backgroundColor: 'white',
+    borderWidth: scale(1),
+    justifyContent: 'center',
+  },
+  textTwo: {fontSize: scale(18), textAlign: 'center'},
+  imgTwo: {
+    height: (vari.width * 0.9) / 2,
+    alignItems: 'center',
+    width: '100%',
+  },
+  viewTabAll:{
+    marginHorizontal: scale(20),
+    justifyContent: 'space-around',
+    marginVertical: scale(20),
+    height: '80%',
+  },
+  birth: {
+    width: '100%',
+    height: scale(50),
+    color: 'blue',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    marginBottom: scale(10),
+    justifyContent: 'center',
+  },
+  touch: {
+    width: '50%',
+    height: scale(50),
+    color: 'blue',
+    borderRadius: 5,
+    marginBottom: scale(10),
+    justifyContent: 'center',
+  },
+  case: {
+    width: '33%',
+    height: scale(50),
+    color: 'blue',
+    borderRadius: 5,
+    marginBottom: scale(10),
+    justifyContent: 'center',
+  },
+  touchUpload:{width: scale(55), height: scale(55)},
+  viewUpload:{
+    alignItems: 'center',
+    marginHorizontal: scale(20),
+    justifyContent: 'space-around',
+    height: '90%',
+  },
+  viewSend:{
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: scale(20),
+  },
+  viewSucces:{
+    fontSize: scale(26),
+    textAlign: 'center',
+    color: 'white',
+    marginVertical: scale(10),
+    fontWeight: 'bold',
+  },
+  textSupport:{
+    fontSize: scale(16),
+    textAlign: 'center',
+    color: 'white',
+    marginVertical: scale(20),
+  },
+  touchLinking:{
+    width: '100%',
+    height: scale(50),
+    justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'white',
+    borderRadius: scale(40),
+  },
+  textLink:{
+    color: 'white',
+    fontSize: scale(18),
+    textAlign: 'center',
+  },
+  touchBack:{
+    width: '100%',
+    height: scale(50),
+    justifyContent: 'center',
+    backgroundColor: 'white',
+    borderRadius: scale(40),
+    marginVertical: scale(20),
+  },
+  textSubmit:{
+    color: 'dodgerblue',
+    fontSize: scale(18),
+    textAlign: 'center',
+  }
+});

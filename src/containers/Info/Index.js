@@ -18,6 +18,7 @@ import Top from '../../components/Top';
 import {setSaveInfoOneAction} from '../../store/action/index';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import moment from 'moment';
+import styless from '../styless';
 class Info extends Component {
   constructor(props) {
     super(props);
@@ -93,7 +94,7 @@ class Info extends Component {
             DATE OF BIRTH
           </Text>
           <TouchableOpacity
-            style={styles.birth}
+            style={styless.birth}
             onPress={this.showDateTimePicker}>
             <Text
               style={{
@@ -113,7 +114,7 @@ class Info extends Component {
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
               style={[
-                styles.touch,
+                styless.touch,
                 {
                   backgroundColor:
                     this.state.gender === 'MALE' ? 'tomato' : 'white',
@@ -124,7 +125,7 @@ class Info extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={[
-                styles.touch,
+                styless.touch,
                 {
                   backgroundColor:
                     this.state.gender === 'FEMALE' ? 'tomato' : 'white',
@@ -144,7 +145,7 @@ class Info extends Component {
           <View style={{flexDirection: 'row'}}>
             <TouchableOpacity
               style={[
-                styles.case,
+                styless.case,
                 {
                   backgroundColor:
                     this.state.case === 'UPPER' ? 'tomato' : 'white',
@@ -155,7 +156,7 @@ class Info extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={[
-                styles.case,
+                styless.case,
                 {
                   backgroundColor:
                     this.state.case === 'LOWER' ? 'tomato' : 'white',
@@ -166,7 +167,7 @@ class Info extends Component {
             </TouchableOpacity>
             <TouchableOpacity
               style={[
-                styles.case,
+                styless.case,
                 {
                   backgroundColor:
                     this.state.case === 'BOTH' ? 'tomato' : 'white',
@@ -215,30 +216,3 @@ const mapDispatchToProps = {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Info);
-const styles = StyleSheet.create({
-  birth: {
-    width: '100%',
-    height: scale(50),
-    color: 'blue',
-    backgroundColor: 'white',
-    borderRadius: 5,
-    marginBottom: scale(10),
-    justifyContent: 'center',
-  },
-  touch: {
-    width: '50%',
-    height: scale(50),
-    color: 'blue',
-    borderRadius: 5,
-    marginBottom: scale(10),
-    justifyContent: 'center',
-  },
-  case: {
-    width: '33%',
-    height: scale(50),
-    color: 'blue',
-    borderRadius: 5,
-    marginBottom: scale(10),
-    justifyContent: 'center',
-  },
-});

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-import {Image, ImageBackground, StyleSheet, Text, View} from 'react-native';
+import {Image, ImageBackground, Text, View} from 'react-native';
 import asset from '../../asset';
 import ButtonTab from '../../components/ButtonTab';
 import {scale} from '../../components/ScaleSheet';
+import styless from '../styless';
 export default class Intro extends Component {
   render() {
     return (
@@ -11,27 +12,19 @@ export default class Intro extends Component {
         style={{width: '100%', height: '100%'}}>
         <View
           style={{
-            // marginHorizontal: scale(20),
             flex: 1,
           }}>
-          <View style={styles.viewTab}>
+          <View style={styless.viewTab}>
             <Image
               style={{width: scale(250), height: scale(250)}}
               resizeMode="contain"
               source={asset.logo}
             />
           </View>
-          <View style={styles.viewBottom}>
-            <View
-              style={{
-                marginHorizontal: scale(20),
-                justifyContent: 'space-around',
-                height: '85%',
-                marginTop:scale(30)
-              }}>
+          <View style={styless.viewBottom}>
+            <View style={styless.viewText}>
               <Text
                 style={{
-                  //   marginHorizontal: scale(20),
                   fontSize: scale(30),
                   color: 'blue',
                 }}>
@@ -39,7 +32,6 @@ export default class Intro extends Component {
               </Text>
               <Text
                 style={{
-                  //   marginHorizontal: scale(20),
                   fontSize: scale(20),
                   color: 'grey',
                 }}>
@@ -58,27 +50,3 @@ export default class Intro extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  logo: {
-    fontSize: scale(50),
-    color: 'black',
-    textAlign: 'center',
-  },
-  viewTab: {
-    width: '100%',
-    height: '45%',
-    backgroundColor: '#C5E6EF',
-    marginBottom: 0,
-    justifyContent: 'center',
-    alignItems:"center"
-    // marginHorizontal: scale(20),
-  },
-  viewBottom: {
-    // width: '100%',
-    height: '55%',
-    backgroundColor: 'white',
-    borderRadius: scale(30),
-    flex: 1,
-    // marginHorizontal: scale(20),
-  },
-});

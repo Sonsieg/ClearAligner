@@ -15,6 +15,7 @@ import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
 import {connect} from 'react-redux';
 import {setSaveImgFiveAction} from '../../../store/action';
+import styless from '../../styless';
 class TabFive extends Component {
   constructor(props) {
     super(props);
@@ -52,56 +53,27 @@ class TabFive extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top title="Add a new enquiry" onPress={() => this.props.navigation.goBack()} />
-        <View
-          style={{
-            marginHorizontal: scale(20),
-            justifyContent: 'space-around',
-            marginVertical: scale(20),
-            height: '80%',
-          }}>
+        <Top
+          title="Add a new enquiry"
+          onPress={() => this.props.navigation.goBack()}
+        />
+        <View style={styless.viewOne}>
           <Text style={{fontSize: scale(20)}}>Please take photos</Text>
-          <View
-            style={{
-              width: '100%',
-              height: (vari.width * 1) / 2,
-              backgroundColor: 'black',
-              justifyContent: 'center',
-            }}>
+          <View style={styless.viewTwo}>
             <Image
-              style={{
-                height: (vari.width * 0.9) / 2,
-                alignItems: 'center',
-                width: '100%',
-              }}
+              style={styless.imgOne}
               resizeMode="contain"
               source={asset.five}
             />
           </View>
-          <Text
-            style={{fontSize: scale(20), color: 'blue', textAlign: 'center'}}>
-            Extra - Oral Views 5:8
-          </Text>
+          <Text style={styless.textOne}>Extra - Oral Views 5:8</Text>
           <TouchableOpacity onPress={this.take}>
-            <View
-              style={{
-                width: '100%',
-                height: (vari.width * 1) / 2,
-                backgroundColor: 'white',
-                borderWidth: scale(1),
-                justifyContent: 'center',
-              }}>
+            <View style={styless.viewThree}>
               {this.state.imgSource === '' ? (
-                <Text style={{fontSize: scale(18), textAlign: 'center'}}>
-                  SELECT A PHOTO
-                </Text>
+                <Text style={styless.textTwo}>SELECT A PHOTO</Text>
               ) : (
                 <Image
-                  style={{
-                    height: (vari.width * 0.9) / 2,
-                    alignItems: 'center',
-                    width: '100%',
-                  }}
+                  style={styless.imgTwo}
                   resizeMode="contain"
                   source={this.state.imgSource}
                 />

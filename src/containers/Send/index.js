@@ -3,6 +3,7 @@ import {Image, ImageBackground, Linking, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import asset from '../../asset';
 import {scale} from '../../components/ScaleSheet';
+import styless from '../styless';
 
 export default class Send extends Component {
   render() {
@@ -10,12 +11,7 @@ export default class Send extends Component {
       <ImageBackground
         source={asset.backgroundend}
         style={{width: '100%', height: '100%'}}>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginHorizontal: scale(20),
-          }}>
+        <View style={styless.viewSend}>
           <Image
             style={{width: scale(400), height: scale(200)}}
             resizeMode="contain"
@@ -28,62 +24,19 @@ export default class Send extends Component {
           />
         </View>
         <View style={{marginHorizontal: scale(20)}}>
-          <Text
-            style={{
-              fontSize: scale(26),
-              textAlign: 'center',
-              color: 'white',
-              marginVertical: scale(10),
-              fontWeight: 'bold',
-            }}>
-            Successfully sent
-          </Text>
-          <Text
-            style={{
-              fontSize: scale(16),
-              textAlign: 'center',
-              color: 'white',
-              marginVertical: scale(20),
-            }}>
+          <Text style={styless.viewSucces}>Successfully sent</Text>
+          <Text style={styless.textSupport}>
             For any help or support, please message us
           </Text>
           <TouchableOpacity
-            onPress={() => Linking.openURL('mailto:sonsieg1999@gmail.com')}
-            style={{
-              width: '100%',
-              height: scale(50),
-              justifyContent: 'center',
-              borderWidth: 2,
-              borderColor: 'white',
-              borderRadius: scale(40),
-            }}>
-            <Text
-              style={{
-                color: 'white',
-                fontSize: scale(18),
-                textAlign: 'center',
-              }}>
-              Send Message
-            </Text>
+            onPress={() => Linking.openURL('mailto:ssthieugiass@gmail.com')}
+            style={styless.touchLinking}>
+            <Text style={styless.textLink}>Send Message</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate('Intro')}
-            style={{
-              width: '100%',
-              height: scale(50),
-              justifyContent: 'center',
-              backgroundColor: 'white',
-              borderRadius: scale(40),
-              marginVertical: scale(20),
-            }}>
-            <Text
-              style={{
-                color: 'dodgerblue',
-                fontSize: scale(18),
-                textAlign: 'center',
-              }}>
-              Submit another case
-            </Text>
+            style={styless.touchBack}>
+            <Text style={styless.textSubmit}>Submit another case</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>

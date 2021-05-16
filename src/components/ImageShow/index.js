@@ -1,56 +1,22 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import vari from '../../../theme/variables/platform';
+import {Image, TouchableOpacity, View} from 'react-native';
 import asset from '../../asset';
-import {scale} from '../ScaleSheet';
+import styles from '../styles';
 export default class ImageShow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
   render() {
     const {imgLeft, imgRight} = this.props;
     return (
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
-        <TouchableOpacity
-          onPress={this.props.onPress1}
-          style={{
-            width: '47%',
-            height: scale(100),
-            borderRadius: scale(10),
-            borderWidth: 1,
-          }}>
+      <View style={styles.imgshowView}>
+        <TouchableOpacity onPress={this.props.onPress1} style={styles.imgTouch}>
           <Image
-            style={{
-              alignItems: 'center',
-              width: '100%',
-              height: '100%',
-              borderRadius: scale(10),
-            }}
+            style={styles.imgImg}
             resizeMode="contain"
             source={imgLeft ? imgLeft : asset.logo}
           />
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={this.props.onPress2}
-          style={{
-            width: '47%',
-            height: scale(100),
-            // backgroundColor: 'blue',
-            borderRadius: scale(10),
-            borderWidth: 1,
-          }}>
+        <TouchableOpacity onPress={this.props.onPress2} style={styles.imgTouch}>
           <Image
-            style={{
-              alignItems: 'center',
-              width: '100%',
-              height: '100%',
-              borderRadius: scale(10),
-            }}
+            style={styles.imgImg}
             resizeMode="contain"
             source={imgRight ? imgRight : asset.logo}
           />

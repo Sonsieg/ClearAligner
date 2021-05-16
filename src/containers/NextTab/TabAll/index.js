@@ -7,6 +7,7 @@ import ImageShow from '../../../components/ImageShow';
 import {scale} from '../../../components/ScaleSheet';
 import Top from '../../../components/Top';
 import {saveImgDataAction} from '../../../store/action/index';
+import styless from '../../styless';
 
 class TabAll extends Component {
   constructor(props) {
@@ -56,12 +57,9 @@ class TabAll extends Component {
     );
     if (check) {
       infoInput = {...this.state};
-      console.log('object All tab', infoInput);
       let dataImg = Object.values(infoInput);
-      console.log('data change', dataImg);
       this.props.saveImgDataAction(dataImg);
       this.props.navigation.navigate('Info');
-      // this.props.setSaveInfoTwoAction(infoInput);
     }
   };
   render() {
@@ -71,16 +69,11 @@ class TabAll extends Component {
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
         <Top
-          title="Add a new enquiry"
+          title="Show All Pictures"
           onPress={() => this.props.navigation.goBack()}
         />
         <View
-          style={{
-            marginHorizontal: scale(20),
-            justifyContent: 'space-around',
-            marginVertical: scale(20),
-            height: '80%',
-          }}>
+          style={styless.viewTabAll}>
           <Text style={{fontSize: scale(20)}}>Click on any photo retry</Text>
           <ImageShow
             onPress1={() => this.props.navigation.navigate('TabOne')}
@@ -108,7 +101,6 @@ class TabAll extends Component {
           />
           <ButtonTab
             title="Next"
-            // onPress={() => this.props.navigation.navigate('Info')}
             onPress={this.goNext}
           />
         </View>
