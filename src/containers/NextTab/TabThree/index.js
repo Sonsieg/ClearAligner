@@ -1,13 +1,20 @@
 import React, {Component} from 'react';
-import {Alert, Image, ImageBackground, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import asset from '../../../asset';
 import {scale} from '../../../components/ScaleSheet';
 import Top from '../../../components/Top';
 import vari from '../../../../theme/variables/platform';
 import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
-import { connect } from 'react-redux';
-import {setSaveImgThreeAction} from '../../../store/action'
+import {connect} from 'react-redux';
+import {setSaveImgThreeAction} from '../../../store/action';
 class TabThree extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +33,7 @@ class TabThree extends Component {
       },
       quality: 0.5,
     };
-    ImagePicker.showImagePicker(options,(response) => {
+    ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
       } else if (response.error) {
         console.log('ImagePicker Error: ');
@@ -46,7 +53,7 @@ class TabThree extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top title="3" onPress={() => this.props.navigation.goBack()} />
+        <Top title="Add a new enquiry" onPress={() => this.props.navigation.goBack()} />
         <View
           style={{
             marginHorizontal: scale(20),
@@ -55,17 +62,28 @@ class TabThree extends Component {
             height: '80%',
           }}>
           <Text style={{fontSize: scale(20)}}>
-            Please take photos as shown on the diagrams
+          Please take photos
           </Text>
           <View
             style={{
               width: '100%',
               height: (vari.width * 1) / 2,
               backgroundColor: 'black',
-            }}></View>
+              justifyContent: 'center',
+            }}>
+            <Image
+              style={{
+                height: (vari.width * 0.9) / 2,
+                alignItems: 'center',
+                width: '100%',
+              }}
+              resizeMode="contain"
+              source={asset.three}
+            />
+          </View>
           <Text
             style={{fontSize: scale(20), color: 'blue', textAlign: 'center'}}>
-            Extra - Oral Views 1:8
+            Extra - Oral Views 3:8
           </Text>
           <TouchableOpacity onPress={this.take}>
             <View
@@ -105,8 +123,8 @@ class TabThree extends Component {
 const mapStateToProps = (state) => ({
   // imgOne: state.imgOne,
 });
-const mapDispatchToProps ={
-  setSaveImgThreeAction
+const mapDispatchToProps = {
+  setSaveImgThreeAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TabThree);

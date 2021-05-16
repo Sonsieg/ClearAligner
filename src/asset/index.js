@@ -5,4 +5,12 @@ export default {
   logo: require('../asset/images/logo.png'),
   font: require('../asset/images/font.png'),
   fly: require('../asset/images/fly.png'),
+  one: require('../asset/images/1.png'),
+  two: require('../asset/images/2.png'),
+  three: require('../asset/images/3.png'),
+  four: require('../asset/images/4.png'),
+  five: require('../asset/images/5.png'),
+  six: require('../asset/images/6.png'),
+  seven: require('../asset/images/7.png'),
+  eight: require('../asset/images/8.png'),
 };

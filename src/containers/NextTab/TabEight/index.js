@@ -52,7 +52,7 @@ class TabEight extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top title="8" onPress={() => this.props.navigation.goBack()} />
+        <Top title="Add a new enquiry" onPress={() => this.props.navigation.goBack()} />
         <View
           style={{
             marginHorizontal: scale(20),
@@ -60,16 +60,27 @@ class TabEight extends Component {
             marginVertical: scale(20),
             height: '80%',
           }}>
-          <Text style={{fontSize: scale(20)}}>Intra - Oral Views 1:2</Text>
+          <Text style={{fontSize: scale(20)}}>Please take photos</Text>
           <View
             style={{
               width: '100%',
               height: (vari.width * 1) / 2,
               backgroundColor: 'black',
-            }}></View>
+              justifyContent: 'center',
+            }}>
+            <Image
+              style={{
+                height: (vari.width * 0.9) / 2,
+                alignItems: 'center',
+                width: '100%',
+              }}
+              resizeMode="contain"
+              source={asset.eight}
+            />
+          </View>
           <Text
             style={{fontSize: scale(20), color: 'blue', textAlign: 'center'}}>
-            Extra - Oral Views 1:8
+            Extra - Oral Views 8:8
           </Text>
           <TouchableOpacity onPress={this.take}>
             <View

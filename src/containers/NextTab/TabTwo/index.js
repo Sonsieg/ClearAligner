@@ -1,13 +1,21 @@
 import React, {Component} from 'react';
-import {Alert, Image, ImageBackground, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import asset from '../../../asset';
 import {scale} from '../../../components/ScaleSheet';
 import Top from '../../../components/Top';
 import vari from '../../../../theme/variables/platform';
 import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
-import { connect } from 'react-redux';
-import {setSaveImgTwoAction} from '../../../store/action'
+import {connect} from 'react-redux';
+import {setSaveImgTwoAction} from '../../../store/action';
 class TabTwo extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +34,7 @@ class TabTwo extends Component {
       },
       quality: 0.5,
     };
-    ImagePicker.showImagePicker(options,(response) => {
+    ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
       } else if (response.error) {
         console.log('ImagePicker Error: ');
@@ -46,7 +54,7 @@ class TabTwo extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top title="2" onPress={() => this.props.navigation.goBack()} />
+        <Top title="Add a new enquiry" onPress={() => this.props.navigation.goBack()} />
         <View
           style={{
             marginHorizontal: scale(20),
@@ -55,17 +63,28 @@ class TabTwo extends Component {
             height: '80%',
           }}>
           <Text style={{fontSize: scale(20)}}>
-            Please take photos as shown on the diagrams
+          Please take photos
           </Text>
           <View
             style={{
               width: '100%',
               height: (vari.width * 1) / 2,
               backgroundColor: 'black',
-            }}></View>
+              justifyContent: 'center',
+            }}>
+            <Image
+              style={{
+                height: (vari.width * 0.9) / 2,
+                alignItems: 'center',
+                width: '100%',
+              }}
+              resizeMode="contain"
+              source={asset.two}
+            />
+          </View>
           <Text
             style={{fontSize: scale(20), color: 'blue', textAlign: 'center'}}>
-            Extra - Oral Views 1:8
+            Extra - Oral Views 2:8
           </Text>
           <TouchableOpacity onPress={this.take}>
             <View
@@ -105,8 +124,8 @@ class TabTwo extends Component {
 const mapStateToProps = (state) => ({
   // imgOne: state.imgOne,
 });
-const mapDispatchToProps ={
-  setSaveImgTwoAction
+const mapDispatchToProps = {
+  setSaveImgTwoAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TabTwo);
