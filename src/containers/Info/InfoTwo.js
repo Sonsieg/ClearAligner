@@ -13,11 +13,7 @@ class InfoTwo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dentist: '',
-      praticeName: '',
-      praticeAdress: '',
       youAdresss: '',
-      postCode: '',
       telephone: '',
       yourEmail: '',
     };
@@ -71,43 +67,11 @@ class InfoTwo extends Component {
           style={{marginHorizontal: scale(20)}}
           showsVerticalScrollIndicator={false}>
           <InputText
-            title="DENTIST NAME"
-            secureTextEntry={false}
-            value={this.state.dentist}
-            onChangeText={(value) => {
-              this.setState({dentist: value});
-            }}
-          />
-          <InputText
-            title="PRACTICE NAME"
-            secureTextEntry={false}
-            value={this.state.praticeName}
-            onChangeText={(value) => {
-              this.setState({praticeName: value});
-            }}
-          />
-          <InputText
-            title="PRACTICE ADDRESS"
-            secureTextEntry={false}
-            value={this.state.praticeAdress}
-            onChangeText={(value) => {
-              this.setState({praticeAdress: value});
-            }}
-          />
-          <InputText
             title="YOUR ADDRESS"
             secureTextEntry={false}
             value={this.state.youAdresss}
             onChangeText={(value) => {
               this.setState({youAdresss: value});
-            }}
-          />
-          <InputText
-            title="POSTCODE"
-            secureTextEntry={false}
-            value={this.state.postCode}
-            onChangeText={(value) => {
-              this.setState({postCode: value});
             }}
           />
           <InputText

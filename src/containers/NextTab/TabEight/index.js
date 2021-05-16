@@ -1,13 +1,20 @@
 import React, {Component} from 'react';
-import {Alert, Image, ImageBackground, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  ImageBackground,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import asset from '../../../asset';
 import {scale} from '../../../components/ScaleSheet';
 import Top from '../../../components/Top';
 import vari from '../../../../theme/variables/platform';
 import ButtonTab from '../../../components/ButtonTab';
 import ImagePicker from 'react-native-image-picker';
-import { connect } from 'react-redux';
-import {setSaveImgEightAction} from '../../../store/action'
+import {connect} from 'react-redux';
+import {setSaveImgEightAction} from '../../../store/action';
 class TabEight extends Component {
   constructor(props) {
     super(props);
@@ -18,14 +25,15 @@ class TabEight extends Component {
 
   take = () => {
     const options = {
-      maxWidth: 2000,
-      maxHeight: 2000,
+      maxWidth: 500,
+      maxHeight: 500,
       storageOptions: {
         skipBackup: true,
         path: 'images',
       },
+      quality: 0.5,
     };
-    ImagePicker.showImagePicker(options,(response) => {
+    ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {
       } else if (response.error) {
         console.log('ImagePicker Error: ');
@@ -44,10 +52,7 @@ class TabEight extends Component {
       <ImageBackground
         source={asset.background}
         style={{width: '100%', height: '100%'}}>
-        <Top
-          title="8"
-          onPress={() => this.props.navigation.goBack()}
-        />
+        <Top title="8" onPress={() => this.props.navigation.goBack()} />
         <View
           style={{
             marginHorizontal: scale(20),
@@ -104,8 +109,8 @@ class TabEight extends Component {
 const mapStateToProps = (state) => ({
   imgOne: state.imgOne,
 });
-const mapDispatchToProps ={
-  setSaveImgEightAction
+const mapDispatchToProps = {
+  setSaveImgEightAction,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(TabEight);

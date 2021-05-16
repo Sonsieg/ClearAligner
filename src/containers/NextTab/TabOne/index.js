@@ -29,12 +29,13 @@ class TabOne extends Component {
   }
   take = () => {
     const options = {
-      maxWidth: 2000,
-      maxHeight: 2000,
+      maxWidth: 500,
+      maxHeight: 500,
       storageOptions: {
         skipBackup: true,
         path: 'images',
       },
+      quality: 0.5,
     };
     ImagePicker.showImagePicker(options, (response) => {
       if (response.didCancel) {

@@ -26,10 +26,6 @@ class Info extends Component {
       birth: 'DD-MM-YYYY',
       gender: 'MALE',
       case: 'UPPER',
-      treatmen: '',
-      require: '',
-      crown: '',
-      comment: '',
       isDateTimePickerVisible: false,
     };
   }
@@ -51,10 +47,6 @@ class Info extends Component {
       infoInput.birth = values.birth;
       infoInput.gender = values.gender;
       infoInput.case = values.case;
-      infoInput.treatmen = values.treatmen;
-      infoInput.require = values.require;
-      infoInput.crown = values.crown;
-      infoInput.comment = values.comment;
       this.props.navigation.navigate('InfoTwo');
       this.props.setSaveInfoOneAction(infoInput);
     }
@@ -70,8 +62,8 @@ class Info extends Component {
   handleDatePicked = (date) => {
     this.hideDateTimePicker();
     this.setState({
-      birth: moment(date).format('DD-MM-YYYY')
-    })
+      birth: moment(date).format('DD-MM-YYYY'),
+    });
   };
   render() {
     return (
@@ -184,38 +176,6 @@ class Info extends Component {
               <Text style={{textAlign: 'center'}}>BOTH</Text>
             </TouchableOpacity>
           </View>
-          <InputText
-            title="WHEN DO YOU WISH WANT YOUR TREATMENT TO COMMENCE"
-            secureTextEntry={false}
-            value={this.state.treatmen}
-            onChangeText={(value) => {
-              this.setState({treatmen: value});
-            }}
-          />
-          <InputText
-            title="REQUIREMENTS"
-            secureTextEntry={false}
-            value={this.state.require}
-            onChangeText={(value) => {
-              this.setState({require: value});
-            }}
-          />
-          <InputText
-            title="ANY CROWNS, CAP, IMPLANTS?"
-            secureTextEntry={false}
-            value={this.state.crown}
-            onChangeText={(value) => {
-              this.setState({crown: value});
-            }}
-          />
-          <InputText
-            title="OTHER COMMENTS"
-            secureTextEntry={false}
-            value={this.state.comment}
-            onChangeText={(value) => {
-              this.setState({comment: value});
-            }}
-          />
           <Text
             style={{
               fontSize: scale(14),

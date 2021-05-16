@@ -54,7 +54,7 @@ class Upload extends Component {
   };
   upImageData = async () => {
     const {dataImg} = this.props;
-    for (let i = 0; i < dataImg.length; i++) {
+    for (let i = 0; i < 8; i++) {
       this.uploadImage(i);
     }
     Alert.alert(
@@ -71,7 +71,6 @@ class Upload extends Component {
       });
     Alert.alert('Data uploaded!', 'Upload data success');
     this.props.navigation.navigate('Send');
-    
   };
   render() {
     console.log('this is data', this.state.data);
