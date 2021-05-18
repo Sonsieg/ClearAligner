@@ -26,6 +26,8 @@ class Upload extends Component {
   }
   componentDidMount() {
     const {dataOne, dataTwo} = this.props;
+    var date = new Date();
+    dataTwo.time = `${date}`;
     const returnedTarget = Object.assign(dataOne, dataTwo);
     this.setState({data: returnedTarget});
   }
