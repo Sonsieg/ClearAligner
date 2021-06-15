@@ -3,6 +3,7 @@ import {
   Alert,
   Image,
   ImageBackground,
+  Linking,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -52,24 +53,39 @@ class Upload extends Component {
     }
     this.setState({uploading: false});
   };
-  upImageData = async () => {
-    for (let i = 0; i < 8; i++) {
-      this.uploadImage(i);
-    }
-    Alert.alert(
-      'Photo uploaded!',
-      'Your photo has been uploaded to Firebase Cloud Storage!',
-    );
-  };
+  // upImageData = async () => {
+  //   for (let i = 0; i < 8; i++) {
+  //     this.uploadImage(i);
+  //   }
+  //   Alert.alert(
+  //     'Photo uploaded!',
+  //     'Your photo has been uploaded to Firebase Cloud Storage!',
+  //   );
+  // };
   uploadData = async () => {
-    firestore()
+    await this.uploadImage(0);
+    await this.uploadImage(1);
+    await this.uploadImage(2);
+    await this.uploadImage(3);
+    await this.uploadImage(4);
+    await this.uploadImage(5);
+    await this.uploadImage(6);
+    await this.uploadImage(7);
+    await firestore()
       .collection('ClearAligent')
       .add(this.state.data)
       .then(() => {
-        console.log('User added!');
+        Alert.alert('Continue', 'Home or email ?', [
+          {
+            text: 'Home',
+            onPress: () => this.props.navigation.navigate('Intro'),
+          },
+          {
+            text: 'Email',
+            onPress: () => Linking.openURL('mailto:ssthieugiass@gmail.com'),
+          },
+        ]);
       });
-    Alert.alert('Data uploaded!', 'Upload data success');
-    this.props.navigation.navigate('Send');
   };
   render() {
     return (
@@ -91,13 +107,14 @@ class Upload extends Component {
             resizeMode="cover"
             source={asset.fly}
           />
-          {this.state.uploading ? (
+          {/* {this.state.uploading ? (
             <View style={{marginTop: 20}}>
               <Progress.Bar progress={this.state.transferred} width={300} />
             </View>
           ) : (
             <ButtonTab title="Upload the picture" onPress={this.upImageData} />
-          )}
+          )} */}
+          {/* <Text style={}> Please wait a moment</Text> */}
           <ButtonTab title="Upload Info" onPress={this.uploadData} />
         </View>
       </ImageBackground>
