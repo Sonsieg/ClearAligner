@@ -9,16 +9,16 @@ export default StyleSheet.create({
   },
   viewTab: {
     width: '100%',
-    height: '45%',
+    height: '50%',
     backgroundColor: '#C5E6EF',
     marginBottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
   viewBottom: {
-    height: '55%',
+    height: '50%',
     backgroundColor: 'white',
-    borderRadius: scale(30),
+    // borderRadius: scale(30),
     flex: 1,
   },
   viewText: {

@@ -16,9 +16,9 @@ export default class Intro extends Component {
           }}>
           <View style={styless.viewTab}>
             <Image
-              style={{width: scale(250), height: scale(250)}}
-              resizeMode="contain"
-              source={asset.logo}
+              style={{width: '100%', height: '100%'}}
+              resizeMode="cover"
+              source={asset.logo2}
             />
           </View>
           <View style={styless.viewBottom}>

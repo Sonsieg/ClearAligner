@@ -36,12 +36,14 @@ class TabAll extends Component {
     ) {
       Alert.alert(
         'Thông báo',
-        `Vui lòng điền đầy đủ thông tin`,
+        'Vui lòng điền đầy đủ thông tin',
         [{text: 'Đồng ý'}],
         {cancelable: false},
       );
       return false;
-    } else return true;
+    } else {
+      return true;
+    }
   };
   goNext = () => {
     let infoInput = [];
@@ -72,8 +74,7 @@ class TabAll extends Component {
           title="Show All Pictures"
           onPress={() => this.props.navigation.goBack()}
         />
-        <View
-          style={styless.viewTabAll}>
+        <View style={styless.viewTabAll}>
           <Text style={{fontSize: scale(20)}}>Click on any photo retry</Text>
           <ImageShow
             onPress1={() => this.props.navigation.navigate('TabOne')}
@@ -99,10 +100,7 @@ class TabAll extends Component {
             imgLeft={img7}
             imgRight={img8}
           />
-          <ButtonTab
-            title="Next"
-            onPress={this.goNext}
-          />
+          <ButtonTab title="Next" onPress={this.goNext} />
         </View>
       </ImageBackground>
     );
