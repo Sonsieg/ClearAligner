@@ -13,4 +13,5 @@ export default {
   six: require('../asset/images/6.png'),
   seven: require('../asset/images/7.jpg'),
   eight: require('../asset/images/8.jpg'),
+  intro: require('../asset/images/intro.jpg'),
 };

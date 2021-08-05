@@ -9,16 +9,15 @@ export default StyleSheet.create({
   },
   viewTab: {
     width: '100%',
-    height: '45%',
+    height: '50%',
     backgroundColor: '#C5E6EF',
     marginBottom: 0,
     justifyContent: 'center',
     alignItems: 'center',
   },
   viewBottom: {
-    height: '55%',
+    height: '50%',
     backgroundColor: 'white',
-    borderRadius: scale(30),
     flex: 1,
   },
   viewText: {
@@ -58,7 +57,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     width: '100%',
   },
-  viewTabAll:{
+  viewTabAll: {
     marginHorizontal: scale(20),
     justifyContent: 'space-around',
     marginVertical: scale(20),
@@ -89,32 +88,32 @@ export default StyleSheet.create({
     marginBottom: scale(10),
     justifyContent: 'center',
   },
-  touchUpload:{width: scale(55), height: scale(55)},
-  viewUpload:{
+  touchUpload: {width: scale(55), height: scale(55)},
+  viewUpload: {
     alignItems: 'center',
     marginHorizontal: scale(20),
     justifyContent: 'space-around',
     height: '90%',
   },
-  viewSend:{
+  viewSend: {
     justifyContent: 'center',
     alignItems: 'center',
     marginHorizontal: scale(20),
   },
-  viewSucces:{
+  viewSucces: {
     fontSize: scale(26),
     textAlign: 'center',
     color: 'white',
     marginVertical: scale(10),
     fontWeight: 'bold',
   },
-  textSupport:{
+  textSupport: {
     fontSize: scale(16),
     textAlign: 'center',
     color: 'white',
     marginVertical: scale(20),
   },
-  touchLinking:{
+  touchLinking: {
     width: '100%',
     height: scale(50),
     justifyContent: 'center',
@@ -122,12 +121,12 @@ export default StyleSheet.create({
     borderColor: 'white',
     borderRadius: scale(40),
   },
-  textLink:{
+  textLink: {
     color: 'white',
     fontSize: scale(18),
     textAlign: 'center',
   },
-  touchBack:{
+  touchBack: {
     width: '100%',
     height: scale(50),
     justifyContent: 'center',
@@ -135,9 +134,9 @@ export default StyleSheet.create({
     borderRadius: scale(40),
     marginVertical: scale(20),
   },
-  textSubmit:{
+  textSubmit: {
     color: 'dodgerblue',
     fontSize: scale(18),
     textAlign: 'center',
-  }
+  },
 });
