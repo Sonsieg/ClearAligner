@@ -41,7 +41,7 @@ class InfoTwo extends Component {
     }
     if (!errorEmail && !errorPhone) return true;
   };
-  goSend = () => {
+  goSend = async () => {
     let infoInput = {};
     let check = this.validateFied(
       this.state.youAdresss,
@@ -50,8 +50,8 @@ class InfoTwo extends Component {
     );
     if (check) {
       infoInput = {...this.state};
-      this.props.navigation.navigate('Upload');
-      this.props.setSaveInfoTwoAction(infoInput);
+      await this.props.setSaveInfoTwoAction(infoInput);
+      await this.props.navigation.navigate('Upload');
     }
   };
   render() {
@@ -98,7 +98,7 @@ class InfoTwo extends Component {
             }}>
             **This app is for visual assesssment only
           </Text>
-          <ButtonTab title="Next" onPress={this.goSend} />
+          <ButtonTab title="Next" onPress={() => this.goSend()} />
         </ScrollView>
       </ImageBackground>
     );

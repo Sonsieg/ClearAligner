@@ -88,7 +88,7 @@ export default StyleSheet.create({
     marginBottom: scale(10),
     justifyContent: 'center',
   },
-  touchUpload: {width: scale(55), height: scale(55)},
+  touchUpload: {width: scale(30), height: scale(30), margin: scale(5)},
   viewUpload: {
     alignItems: 'center',
     marginHorizontal: scale(20),

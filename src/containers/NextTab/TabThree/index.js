@@ -66,7 +66,7 @@ class TabThree extends Component {
             />
           </View>
           <Text style={styless.textOne}>Extra - Oral Views 3:8</Text>
-          <TouchableOpacity onPress={this.take}>
+          <TouchableOpacity onPress={() => this.take()}>
             <View style={styless.viewThree}>
               {this.state.imgSource === '' ? (
                 <Text style={{fontSize: scale(18), textAlign: 'center'}}>

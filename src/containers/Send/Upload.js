@@ -80,9 +80,13 @@ class Upload extends Component {
   };
   render() {
     return (
-      <ImageBackground
-        source={asset.backgroundend}
-        style={{width: '100%', height: '100%'}}>
+      <View
+        style={{
+          width: '100%',
+          height: '100%',
+          flex: 1,
+          backgroundColor: '#87ceeb',
+        }}>
         <TouchableOpacity
           style={styless.touchUpload}
           onPress={() => this.props.navigation.goBack()}>
@@ -100,7 +104,7 @@ class Upload extends Component {
           />
           <ButtonTab title="Upload Info" onPress={this.uploadData} />
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }

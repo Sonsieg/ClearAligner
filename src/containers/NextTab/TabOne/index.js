@@ -68,7 +68,7 @@ class TabOne extends Component {
             />
           </View>
           <Text style={styless.textOne}>Extra - Oral Views 1:8</Text>
-          <TouchableOpacity onPress={this.take}>
+          <TouchableOpacity onPress={() => this.take()}>
             <View style={styless.viewThree}>
               {this.state.imgSource === '' ? (
                 <Text style={styless.textTwo}>SELECT A PHOTO</Text>
